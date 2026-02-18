@@ -1,18 +1,18 @@
 # F1 Race Strategy Simulator (Silverstone)
 
-A **Monte Carlo–based simulation and optimization framework** for evaluating Formula 1 pit stop strategies under tire degradation, fuel burn-off, and stochastic race uncertainty.
+A Monte Carlo–based simulation and optimization framework for evaluating Formula 1 pit stop strategies under tire degradation, fuel burn-off, and stochastic race uncertainty.
 
-This project explores **risk-adjusted decision making** and compares **Python research workflows** with a **high-performance C++ simulation core**, inspired by how **quantitative trading systems** evaluate strategies under uncertainty.
+This project explores risk-adjusted decision making and compares Python research workflows with a high-performance C++ simulation core, inspired by how quantitative trading systems evaluate strategies under uncertainty.
 
 ---
 
 ## Overview
 
-This project models a full Formula 1 race **lap-by-lap** and evaluates pit strategies using repeated stochastic simulations.
+This project models a full Formula 1 race lap-by-lap and evaluates pit strategies using repeated stochastic simulations.
 
-Instead of optimizing only for fastest expected race time, strategies are selected using a **risk-adjusted objective** that balances performance against outcome variability.
+Instead of optimizing only for fastest expected race time, strategies are selected using a risk-adjusted objective that balances performance against outcome variability.
 
-> The workflow mirrors a typical **quant research → production optimization** pipeline.
+> The workflow mirrors a typical quant research → production optimization pipeline.
 
 ---
 
@@ -20,9 +20,9 @@ Instead of optimizing only for fastest expected race time, strategies are select
 
 ### Monte Carlo Race Simulation
 - Lap times incorporate:
-  - **Compound-specific tire degradation** (nonlinear)
-  - **Fuel burn-off effects**
-  - **Stochastic lap-to-lap noise**
+  - Compound-specific tire degradation (nonlinear)
+  - Fuel burn-off effects
+  - Stochastic lap-to-lap noise
 - Thousands of full-race simulations per strategy estimate:
   - Expected race time (mean)
   - Outcome variability (standard deviation)
@@ -30,7 +30,7 @@ Instead of optimizing only for fastest expected race time, strategies are select
 ---
 
 ### Strategy Optimization
-- Evaluates **1-stop pit strategies** across:
+- Evaluates 1-stop pit strategies across:
   - Multiple compound orderings (S→M, S→H, M→H, etc.)
   - A configurable range of pit lap choices
 - Searches for optimal strategies using repeated Monte Carlo evaluation
@@ -38,26 +38,26 @@ Instead of optimizing only for fastest expected race time, strategies are select
 ---
 
 ### Risk Budget (λ)
-Strategies are evaluated using a **risk-adjusted objective**:
+Strategies are evaluated using a risk-adjusted objective;
 
 score = mean_race_time + λ · standard_deviation
 
 
-- **λ (lambda)** represents a **risk budget**
+- λ (lambda) represents a risk budget
 - Higher λ penalizes volatility and favors more stable outcomes
 - Varying λ demonstrates how optimal strategies shift under different risk tolerances
 
-This formulation is analogous to **risk-adjusted portfolio optimization** in quantitative finance.
+This formulation is analogous to risk-adjusted portfolio optimization** in quantitative finance.
 
 ---
 
 ### High-Performance C++ Simulation Core
-- Performance-critical simulation loop reimplemented in **C++**
-- Enables **hundreds of thousands of simulations in under one second**
-- Models **stochastic pit stop execution risk**
+- Performance-critical simulation loop reimplemented in C++
+- Enables hundreds of thousands of simulations in under one second**
+- Models stochastic pit stop execution risk
 - Allows direct comparison between:
-  - **Python** (modeling, experimentation)
-  - **C++** (throughput, latency)
+  - Python (modeling, experimentation)
+  - C++ (throughput, latency)
 
 ---
 
