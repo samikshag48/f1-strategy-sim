@@ -1,0 +1,11 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# PyCharm / IDE
+.idea/
+
+# C++ binaries
+sim
+*.out
